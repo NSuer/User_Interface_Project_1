@@ -89,7 +89,7 @@ I did 10-plus-10 MINUTES, because I was having trouble coming up with more ideas
     ![](Sketches/3_Variations.png)
 
 ### Prototype Sketch of Your Envisioned Interface
-- TODO
+![](Sketches/Prototype_Sketch.png)
 
 ### Feedback for Prototype Sketches from 2 People
 - Olivia: TODO
