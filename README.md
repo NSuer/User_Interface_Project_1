@@ -59,9 +59,9 @@ I hope to learn about how a prospective user would want to use an interface to m
 - I learned wat type of interface they would want. Simplistic with dark, light, pink, and purple color themes.
 - I learned how often and what they want to see when they view previous entries. 
 
-## Design Goals and Requirements
+## Design
 
-- **To address in implementation**
+### Design Goals and Requirements
   - Quickly being able to see their consistency.
   - Being able to switch themes between dark, light, pink, and purple.
   - Journaling, keeping track of verses, prayer, and reflection activities.
@@ -100,10 +100,8 @@ I did 10-plus-10 MINUTES, because I was having trouble coming up with more ideas
 - How they would use this application.
 - TODO 
 
-## Description of the interface in detail:
-TODO
-
-### features and controls
+### Description of the interface in detail:
+- Features and controls
 - Include plenty of screenshots to illustrate your interface and different actions users can perform within it
 - TODO 
 
