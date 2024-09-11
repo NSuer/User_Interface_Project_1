@@ -68,9 +68,6 @@ I hope to learn about how a prospective user would want to use an interface to m
   - Viewing previous journal entries.
   - Journal entry search bar ( this is my Level 4 Implementation Goal ).
 
-- **Future Work**
-  - A verse / what I've read tracker. I belive this would be a large undertaking and would be out of scopr for this project. Might explore if I have time 
-
 ### Sketching Design Alternatives
 I did 10-plus-10 MINUTES, because I was having trouble coming up with more ideas. It said this was allowed in the project instructions.
 
@@ -121,6 +118,7 @@ TODO
     
 ### Future Work
 - Future work- No project is ever fully done. What would you do next?  This is also a place to discuss the work you attempted but could not fully complete before the project deadline- include screenshots to illustrate and document your progress. 
+- A verse / what I've read tracker. I belive this would be a large undertaking and would be out of scopr for this project. Might explore if I have time 
 - TODO
 
 ### Demo Video
