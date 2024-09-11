@@ -1,5 +1,9 @@
 # User_Interface_Project_1
 
+## Helpful Commands
+- `npm run deploy` - THis will build and update the github page public website
+
+
 
 # Assignment 3: Project check-in
 
