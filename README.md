@@ -76,20 +76,20 @@ I did 10-plus-10 MINUTES, because I was having trouble coming up with more ideas
 
 - **3 interesting design challenges to explore and 10-plus-10 sketches.**
   - Enable the user to select previous entries by date.
-   - Alternatives
-   ![](Sketches/1_Alternatives.png)
-   - Variations
-   ![](Sketches/1_Variations.png)
+    - Alternatives
+    ![](Sketches/1_Alternatives.png)
+    - Variations
+    ![](Sketches/1_Variations.png)
   - Enable the user to quickly see their consistency in a minimalistic and simple way.
-   - Alternatives
-   ![](Sketches/2_Alternatives.png)
-   - Variations
-   ![](Sketches/2_Variations.png)
+    - Alternatives
+    ![](Sketches/2_Alternatives.png)
+    - Variations
+    ![](Sketches/2_Variations.png)
   - Enable the user to change the color theme.
-   - Alternatives
-   ![](Sketches/3_Alternatives.png)
-   - Variations
-   ![](Sketches/3_Variations.png)
+    - Alternatives
+    ![](Sketches/3_Alternatives.png)
+    - Variations
+    ![](Sketches/3_Variations.png)
 
 ### Prototype Sketch of Your Envisioned Interface
 - TODO
