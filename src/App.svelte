@@ -28,7 +28,6 @@
     <div class="container">
     <!-- User Overview Section -->
       <div class="left-column">
-        <div class="padding_container">
           <div class="box">
             <h2>User Overview</h2>
             <p><strong>Days Since Beginning:</strong> {daysUsing}</p>
@@ -39,7 +38,6 @@
             <p><strong>Days Since Beginning:</strong> {daysUsing}</p>
             <p><strong>Active Days:</strong> {daysActive}</p>
           </div>
-        </div>
       </div>
     
       <!-- Activity Tracking Section -->
@@ -79,6 +77,8 @@
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto auto;
+    gap: 1rem;
   }
   .padding_container {
     padding: 1rem;
@@ -86,15 +86,14 @@
     border-radius: 10px;
   }
   .left-column {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    padding-right: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
   .right-column {
-    width: 100%;
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
   .box_header {
     width: 100%;
@@ -104,7 +103,11 @@
     border-radius: 10px;
   }
   .box {
-      text-align: center;
+    height: 50%;
+    text-align: center;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 10px;
   }
   
 </style>
