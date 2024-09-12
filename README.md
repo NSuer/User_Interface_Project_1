@@ -125,3 +125,4 @@ I did 10-plus-10 MINUTES, because I was having trouble coming up with more ideas
 
 # Helpful Commands
 - `npm run deploy` - This will build and deploy the github page public website
+- `npm run dev` - runs site locally
