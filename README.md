@@ -110,7 +110,8 @@ I did 10-plus-10 MINUTES, because I was having trouble coming up with more ideas
 
 ## Use of AI
 - Optional- Use of AI-  If you used AI, describe how.  Did you identify strengths/limitations of using AI for your application. Tell your reader how you used an AI tool to help you with your project. Note limitations and places where the AI responses were insufficient.  Comment on whether it was helpful and how.  
-- I used AI to convert this documentation from a word document to markdown
+- I used AI to convert this documentation from a word document to markdown. This was before I worked on design work though. This was heplpful, but the markdown wasn't perfect
+- I used AI as a css debugging tool. I used co-pilot to explain to me what things did and ask what is causing certain behavior. This was helpful but like 30% of the time it was wrong.
 - TODO 
     
 ## Future Work
