@@ -92,13 +92,12 @@ I did 10-plus-10 MINUTES, because I was having trouble coming up with more ideas
 ![](Sketches/Prototype_Sketch.png)
 
 ### Feedback for Prototype Sketches from 2 People
-- Olivia: TODO
-- Carson: TODO
+- Olivia: She thinks there should be an add activity button rather than jsut clicking on dropdown. Also that I should come up with better name.
+- Carson: Carson ntoiced there was no label for the setting goals area and wondered if you could set other goals.
 
 ### Mock User Profile
-- Brief description of them.
-- How they would use this application.
-- TODO 
+- Jane Doe (she/her) is a 20 year old that wants to be more consistent with her daily spiritual time. During that time she likes to read, journal, and pray.
+- Jane Doe wants to use this application as a way to make sure she sticks to her goals with daily spiritual time, she also wants to look at her previous journal entries in the future.
 
 ## Description of the interface in detail:
 - Features and controls
