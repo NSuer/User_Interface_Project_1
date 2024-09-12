@@ -1,6 +1,53 @@
 import { writable } from "svelte/store";
 import { readable } from 'svelte/store';
 
+// Store for theme
+export const colors = {
+  background: {
+    grey: "#d3d3d3",
+    white: "#ffffff",
+    pink: "#e6cce6",
+    purple: "#b0c4de",
+  },
+  primary: {
+    black: "#333333",
+    red: "#cc6666",
+    blue: "#6699cc",
+    yellow: "#cccc66",
+    green: "#66cc66",
+    orange: "#cc9966",
+    brown: "#8b4513"
+  },
+  secondary: {
+    black: "#333333",
+    red: "#cc6666",
+    blue: "#6699cc",
+    yellow: "#cccc66",
+    green: "#66cc66",
+    orange: "#cc9966",
+    brown: "#8b4513"
+  }
+};
+
+export let backgroundArray = Object.values(colors.background);
+export let primaryArray = Object.values(colors.primary);
+export let secondaryArray = Object.values(colors.secondary);
+
+export let backgroundColor = writable(colors.background.grey);
+export let primaryColor = writable(colors.primary.black);
+export let secondaryColor = writable(colors.secondary.black);
+
+export function setBackgroundColor(color) {
+  backgroundColor.set(colors.background[color]);
+}
+
+export function setPrimaryColor(color) {
+  primaryColor.set(colors.primary[color]);
+}
+
+export function setSecondaryColor(color) {
+  secondaryColor.set(colors.secondary[color]);
+}
 
 export let userData = writable({
   name: " Jane Doe",

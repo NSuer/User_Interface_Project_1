@@ -4,7 +4,14 @@
   import { dailyEntries } from './stores.js';
   import { userData } from './stores.js';
 
+  import { backgroundColor, primaryColor, secondaryColor } from './stores.js';
+  import ThemePicker from './lib/ThemePicker.svelte';
+
   import ActivtiesSection from './lib/ActivtiesSection.svelte'
+
+  $: document.documentElement.style.setProperty('background-color', $backgroundColor);
+  // $: document.documentElement.style.setProperty('color', $primaryColor);
+  // $: document.documentElement.style.setProperty('border-color', $secondaryColor);
 
   let daysActive = $userData.daysActive
   // Days using is the amount of days since the user started using the interface
@@ -21,7 +28,8 @@
 <main>
   <header>
     <div class="box_header">
-      <h1>Spiritual Journal</h1>
+      <h1 style="color: {$primaryColor};">Spiritual Journal</h1>
+      <ThemePicker />
     </div>
   </header>
   <body>
@@ -29,14 +37,14 @@
     <!-- User Overview Section -->
       <div class="left-column">
           <div class="box">
-            <h2>User Overview</h2>
-            <p><strong>Days Since Beginning:</strong> {daysUsing}</p>
-            <p><strong>Active Days:</strong> {daysActive}</p>
+            <h2 style="color: {$primaryColor};">User Overview</h2>
+            <p style="color: {$primaryColor};"><strong>Days Since Beginning:</strong> {daysUsing}</p>
+            <p style="color: {$primaryColor};"><strong>Active Days:</strong> {daysActive}</p>
           </div>
           <div class="box">
-            <h2>User Overview</h2>
-            <p><strong>Days Since Beginning:</strong> {daysUsing}</p>
-            <p><strong>Active Days:</strong> {daysActive}</p>
+            <h2 style="color: {$primaryColor};">User Overview</h2>
+            <p style="color: {$primaryColor};"><strong>Days Since Beginning:</strong> {daysUsing}</p>
+            <p style="color: {$primaryColor};"><strong>Active Days:</strong> {daysActive}</p>
           </div>
       </div>
     
@@ -82,7 +90,7 @@
   }
   .padding_container {
     padding: 1rem;
-    border: 1px solid #ddd;
+    border: 1px solid;
     border-radius: 10px;
   }
   .left-column {
@@ -99,15 +107,16 @@
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 2fr;
-    border: 1px solid #ddd;
+    border: 1px solid;
     border-radius: 10px;
   }
   .box {
     height: 50%;
     text-align: center;
     padding: 1rem;
-    border: 1px solid #ddd;
+    border: 1px solid;
     border-radius: 10px;
   }
+
   
 </style>

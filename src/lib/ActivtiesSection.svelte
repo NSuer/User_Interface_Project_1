@@ -4,6 +4,7 @@
   import { dailyEntries } from '../stores.js';
   import { userData } from '../stores.js';
   import { FeelingActivity, ImageActivity, PrayerActivity, JournalActivity, ReflectionActivity,SilentContemplationActivity } from '../stores.js';
+  import { backgroundColor, primaryColor, secondaryColor } from '../stores.js';
 
   let name = $userData.name;
   let date = new Date().toLocaleDateString();
@@ -60,13 +61,13 @@
 </script>
   
 <main>
-  <p><strong>Name:</strong> {name}</p>
-  <p><strong>Current Date/Time:</strong> {date} {time}</p>
+  <p style="color: {$primaryColor};"><strong>Name:</strong> {name}</p>
+  <p style="color: {$primaryColor};"><strong>Current Date/Time:</strong> {date} {time}</p>
 
   <!-- Feelings -->
   <div>
-    <h2>{tempFeelingActivity.type}</h2>
-    <h3>{tempFeelingActivity.description}</h3>
+    <h2 style="color: {$primaryColor};">{tempFeelingActivity.type}</h2>
+    <h3 style="color: {$primaryColor};">{tempFeelingActivity.description}</h3>
     <select bind:value={tempFeelingActivity.selected}>
       {#each tempFeelingActivity.options as option}
         <option value={option}>{option}</option>
@@ -76,18 +77,18 @@
 
   <!-- Image Upload -->
   <div>
-    <h2>{tempImageActivity.type}</h2>
-    <h3>{tempImageActivity.description}</h3>
-    <label>
+    <h2 style="color: {$primaryColor};">{tempImageActivity.type}</h2>
+    <h3 style="color: {$primaryColor};">{tempImageActivity.description}</h3>
+    <label style="color: {$primaryColor};">
       <input type="number" placeholder="Enter time spent" bind:value={tempImageActivity.time} />
     </label>
   </div>
 
   <!-- Prayer -->
   <div>
-    <h2>{tempPrayerActivity.type}</h2>
-    <h3>{tempPrayerActivity.description}</h3>
-    <label>
+    <h2 style="color: {$primaryColor};">{tempPrayerActivity.type}</h2>
+    <h3 style="color: {$primaryColor};">{tempPrayerActivity.description}</h3>
+    <label style="color: {$primaryColor};">
       <input type="checkbox" bind:checked={tempPrayerActivity.boolPrayed} />
       Did you pray today?
     </label>
@@ -95,23 +96,23 @@
 
   <!-- Journal -->
   <div>
-    <h2>{tempJournalActivity.type}</h2>
-    <h3>{tempJournalActivity.description}</h3>
+    <h2 style="color: {$primaryColor};">{tempJournalActivity.type}</h2>
+    <h3 style="color: {$primaryColor};">{tempJournalActivity.description}</h3>
     <textarea placeholder="Write about your day and spiritual journey..." bind:value={tempJournalActivity.text}></textarea>
   </div>
 
   <!-- Reflection -->
   <div>
-    <h2>{tempReflectionActivity.type}</h2>
-    <h3>{tempReflectionActivity.description}</h3>
+    <h2 style="color: {$primaryColor};">{tempReflectionActivity.type}</h2>
+    <h3 style="color: {$primaryColor};">{tempReflectionActivity.description}</h3>
     <input type="text" placeholder="Write the verse or passage..." bind:value={tempReflectionActivity.verse} />
     <textarea placeholder="Write your thoughts..." bind:value={tempReflectionActivity.text}></textarea>
   </div>
 
   <!-- Silent Contemplation -->
   <div>
-    <h2>{tempSilentContemplationActivity.type}</h2>
-    <h3>{tempSilentContemplationActivity.description}</h3>
+    <h2 style="color: {$primaryColor};">{tempSilentContemplationActivity.type}</h2>
+    <h3 style="color: {$primaryColor};">{tempSilentContemplationActivity.description}</h3>
     <textarea placeholder="Write your thoughts after silent contemplation..." bind:value={tempSilentContemplationActivity.text}></textarea>
   </div>
   <!-- Save Button -->

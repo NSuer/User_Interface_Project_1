@@ -113,6 +113,7 @@ I did 10-plus-10 MINUTES, because I was having trouble coming up with more ideas
 - I used AI to convert this documentation from a word document to markdown. This was before I worked on design work though. This was heplpful, but the markdown wasn't perfect
 - I used AI as a css debugging tool. I used co-pilot to explain to me what things did and ask what is causing certain behavior. This was helpful but like 30% of the time it was wrong.
 - I used github co-pilot to turn an array structure I had into classes for my activity. This was helpful and it didn't make any mistakes.
+- In general I use github co-pilot. But this usually is just pattern matching and autocomplete so that I can work faster.
 - TODO 
     
 ## Future Work
