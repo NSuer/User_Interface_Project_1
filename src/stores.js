@@ -111,9 +111,8 @@ constructor() {
 
 export class ImageActivity extends Activity {
 constructor() {
-    super("Image", "Upload an image that represents your day");
-    this.image = null;
-    this.caption = "";
+    super("Image", "Contemplate over an image that represents your day.");
+    this.time = null;
 }
 }
 
