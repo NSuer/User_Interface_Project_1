@@ -4,7 +4,7 @@
   import { dailyEntries } from './stores.js';
   import { userData } from './stores.js';
 
-  import Level_1_goals from './lib/Level_1_goals.svelte'
+  import ActivtiesSection from './lib/ActivtiesSection.svelte'
 
   let daysActive = $userData.daysActive
   // Days using is the amount of days since the user started using the interface
@@ -43,7 +43,7 @@
       <!-- Activity Tracking Section -->
       <div class="right-column">
         <div class="padding_container">
-          <Level_1_goals />
+          <ActivtiesSection />
         </div>
       </div>
     </div>
