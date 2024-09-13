@@ -40,6 +40,7 @@
       return user;
     });
     successMessage = "Entries saved successfully!";
+    console.log($dailyEntries);
   }
 
   let tempFeelingActivity = new FeelingActivity();
@@ -80,7 +81,7 @@
     <h2 style="color: {$primaryColor};">{tempImageActivity.type}</h2>
     <h3 style="color: {$primaryColor};">{tempImageActivity.description}</h3>
     <label style="color: {$primaryColor};">
-      <input type="number" placeholder="Enter time spent" bind:value={tempImageActivity.time} />
+      <input type="number" placeholder="Enter time (minutes) spent" bind:value={tempImageActivity.time} />
     </label>
   </div>
 

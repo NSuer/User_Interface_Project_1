@@ -53,11 +53,178 @@ export let userData = writable({
   name: " Jane Doe",
   email: "JaneDoe@example.com",
   password: "password",
-  daysActive: 20,
-  startDate : "2021-01-01",
+  daysActive: 3,
+  startDate : "2024-09-01",
 });
 
-export let dailyEntries = writable([]);
+// Put fake data into daily entries, so that user can look back on their entries
+export let dailyEntries = writable([
+  {
+    date: "9/1/24",
+    time: "12:00",
+    feelingActivity: {
+      type: "Feeling",
+      description: "How are you feeling today?",
+      completed: true,
+      options: [
+        "Happy",
+        "Sad",
+        "Angry",
+        "Anxious",
+        "Excited",
+        "Calm",
+        "Tired",
+        "Energetic",
+        "Focused",
+        "Distracted",
+        "Motivated",
+        "Unmotivated"
+      ],
+      selected: ["Happy"]
+    },
+    imageActivity: {
+      type: "Image",
+      description: "Upload an image that represents your day",
+      completed: true,
+      time: 5
+    },
+    prayerActivity: {
+      type: "Prayer",
+      description: "Indicate if you prayed today",
+      boolPrayed: true,
+      completed: true
+    },
+    journalActivity: {
+      type: "Journal",
+      description: "Write about your day and spiritual journey",
+      completed: true,
+      text: "Today was a good day."
+    },
+    reflectionActivity: {
+      type: "Reflection",
+      description: "Reflect on a verse or passage. Write your thoughts",
+      completed: true,
+      text: "I am happy.",
+      verse: "John 3:16"
+    },
+    silentContemplationActivity: {
+      type: "Silent Contemplation",
+      description: "Sit in silence and reflect. Write your thoughts",
+      completed: true,
+      text: "I am happy."
+    }
+  },
+  {
+    date: "9/2/24",
+    time: "12:00",
+    feelingActivity: {
+      type: "Feeling",
+      description: "How are you feeling today?",
+      completed: true,
+      options: [
+        "Happy",
+        "Sad",
+        "Angry",
+        "Anxious",
+        "Excited",
+        "Calm",
+        "Tired",
+        "Energetic",
+        "Focused",
+        "Distracted",
+        "Motivated",
+        "Unmotivated"
+      ],
+      selected: ["Sad"]
+    },
+    imageActivity: {
+      type: "Image",
+      description: "Upload an image that represents your day",
+      completed: true,
+      time: 5
+    },
+    prayerActivity: {
+      type: "Prayer",
+      description: "Indicate if you prayed today",
+      boolPrayed: true,
+      completed: true
+    },
+    journalActivity: {
+      type: "Journal",
+      description: "Write about your day and spiritual journey",
+      completed: true,
+      text: "Today was a bad day."
+    },
+    reflectionActivity: {
+      type: "Reflection",
+      description: "Reflect on a verse or passage. Write your thoughts",
+      completed: true,
+      text: "I am sad.",
+      verse: "John 3:16"
+    },
+    silentContemplationActivity: {
+      type: "Silent Contemplation",
+      description: "Sit in silence and reflect. Write your thoughts",
+      completed: true,
+      text: "I am sad."
+    }
+  },
+  {
+    date: "9/4/24",
+    time: "12:00",
+    feelingActivity: {
+      type: "Feeling",
+      description: "How are you feeling today?",
+      completed: true,
+      options: [
+        "Happy",
+        "Sad",
+        "Angry",
+        "Anxious",
+        "Excited",
+        "Calm",
+        "Tired",
+        "Energetic",
+        "Focused",
+        "Distracted",
+        "Motivated",
+        "Unmotivated"
+      ],
+      selected: ["Happy"]
+    },
+    imageActivity: {
+      type: "Image",
+      description: "Upload an image that represents your day",
+      completed: true,
+      time: 5
+    },
+    prayerActivity: {
+      type: "Prayer",
+      description: "Indicate if you prayed today",
+      boolPrayed: true,
+      completed: true
+    },
+    journalActivity: {
+      type: "Journal",
+      description: "Write about your day and spiritual journey",
+      completed: true,
+      text: "Today was a good day."
+    },
+    reflectionActivity: {
+      type: "Reflection",
+      description: "Reflect on a verse or passage. Write your thoughts",
+      completed: true,
+      text: "I am happy.",
+      verse: "John 3:16"
+    },
+    silentContemplationActivity: {
+      type: "Silent Contemplation",
+      description: "Sit in silence and reflect. Write your thoughts",
+      completed: true,
+      text: "I am happy."
+    }
+  },
+]);
 
 // This is more of template for the daily entry, I used chatgpt to turn this into a class
 // export const DailyEntry = {
@@ -83,7 +250,7 @@ export class DailyEntry {
 //     {
 //         type: "Feeling",
 //         description : "How are you feeling today?",
-//         Completed: false,
+//         completed: false,
 //         options: [
 //         "Happy",
 //         "Sad",
@@ -103,7 +270,7 @@ export class DailyEntry {
 //     {
 //         type: "Image",
 //         description: "Upload an image that represents your day",
-//         Completed: false,
+//         completed: false,
 //         image: null,
 //         caption: "",
         
@@ -112,25 +279,25 @@ export class DailyEntry {
 //         type: "Prayer",
 //         description: "Indicate if you prayed today",
 //         boolPrayed: false,
-//         Completed: false,
+//         completed: false,
 //     },
 //     {
 //         type: "Journal",
 //         description: "Write about your day and spiritual journey",
-//         Completed: false,
+//         completed: false,
 //         text: ""
 //     },
 //     {
 //         type: "Reflection",
 //         description: "Reflect on a verse or passage. Write your thoughts",
-//         Completed: false,
+//         completed: false,
 //         text: "",
 //         verse: ""
 //     },
 //     {
 //         type: "Silent Contemplation",
 //         description: "Sit in silence and reflect. Write your thoughts",
-//         Completed: false,
+//         completed: false,
 //         text: ""
 //     }
 //   ];

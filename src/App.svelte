@@ -12,8 +12,7 @@
   $: document.documentElement.style.setProperty('background-color', $backgroundColor);
   // $: document.documentElement.style.setProperty('color', $primaryColor);
   // $: document.documentElement.style.setProperty('border-color', $secondaryColor);
-
-  let daysActive = $userData.daysActive
+  
   // Days using is the amount of days since the user started using the interface
   function getDaysUsing() {
     let startDate = new Date($userData.startDate);
@@ -39,12 +38,12 @@
           <div class="box" style="border: 1px solid {$secondaryColor};">
             <h2 style="color: {$primaryColor};">User Overview</h2>
             <p style="color: {$primaryColor};"><strong>Days Since Beginning:</strong> {daysUsing}</p>
-            <p style="color: {$primaryColor};"><strong>Active Days:</strong> {daysActive}</p>
+            <p style="color: {$primaryColor};"><strong>Active Days:</strong> {$userData.daysActive}</p>
           </div>
           <div class="box" style="border: 1px solid {$secondaryColor};">
             <h2 style="color: {$primaryColor};">User Overview</h2>
             <p style="color: {$primaryColor};"><strong>Days Since Beginning:</strong> {daysUsing}</p>
-            <p style="color: {$primaryColor};"><strong>Active Days:</strong> {daysActive}</p>
+            <p style="color: {$primaryColor};"><strong>Active Days:</strong> {$userData.daysActive}</p>
           </div>
       </div>
     
