@@ -8,26 +8,19 @@
   import ThemePicker from './lib/ThemePicker.svelte';
   import ClickCalendar from './lib/ClickCalendar.svelte';
   import ActivtiesSection from './lib/ActivtiesSection.svelte'
+  import GoalArea from './lib/GoalArea.svelte'
 
   $: document.documentElement.style.setProperty('background-color', $backgroundColor);
   // $: document.documentElement.style.setProperty('color', $primaryColor);
   // $: document.documentElement.style.setProperty('border-color', $secondaryColor);
 
-  // Days using is the amount of days since the user started using the interface
-  function getDaysUsing() {
-    let startDate = new Date($userData.startDate);
-    let currentDate = new Date();
-    let timeDifference = currentDate.getTime() - startDate.getTime();
-    let daysUsing = timeDifference / (1000 * 3600 * 24);
-    return Math.floor(daysUsing);
-  }
-  let daysUsing = getDaysUsing();
+  
 </script>
 
 <main>
   <header>
     <div class="box_header" style="border: 1px solid {$secondaryColor};">
-      <h1 style="color: {$primaryColor};">Spiritual Journal</h1>
+      <h1 style="color: {$primaryColor};">Religious Journal</h1>
       <ThemePicker />
     </div>
   </header>
@@ -39,9 +32,7 @@
             <ClickCalendar />
           </div>
           <div class="box" style="border: 1px solid {$secondaryColor};">
-            <h2 style="color: {$primaryColor};">User Overview</h2>
-            <p style="color: {$primaryColor};"><strong>Days Since Beginning:</strong> {daysUsing}</p>
-            <p style="color: {$primaryColor};"><strong>Active Days:</strong> {$userData.daysActive}</p>
+            <GoalArea />
           </div>
       </div>
     
