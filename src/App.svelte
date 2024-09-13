@@ -6,13 +6,13 @@
 
   import { backgroundColor, primaryColor, secondaryColor } from './stores.js';
   import ThemePicker from './lib/ThemePicker.svelte';
-
+  import ClickCalendar from './lib/ClickCalendar.svelte';
   import ActivtiesSection from './lib/ActivtiesSection.svelte'
 
   $: document.documentElement.style.setProperty('background-color', $backgroundColor);
   // $: document.documentElement.style.setProperty('color', $primaryColor);
   // $: document.documentElement.style.setProperty('border-color', $secondaryColor);
-  
+
   // Days using is the amount of days since the user started using the interface
   function getDaysUsing() {
     let startDate = new Date($userData.startDate);
@@ -36,9 +36,7 @@
     <!-- User Overview Section -->
       <div class="left-column">
           <div class="box" style="border: 1px solid {$secondaryColor};">
-            <h2 style="color: {$primaryColor};">User Overview</h2>
-            <p style="color: {$primaryColor};"><strong>Days Since Beginning:</strong> {daysUsing}</p>
-            <p style="color: {$primaryColor};"><strong>Active Days:</strong> {$userData.daysActive}</p>
+            <ClickCalendar />
           </div>
           <div class="box" style="border: 1px solid {$secondaryColor};">
             <h2 style="color: {$primaryColor};">User Overview</h2>
@@ -110,7 +108,7 @@
     border-radius: 10px;
   }
   .box {
-    height: 50%;
+    height: 100%;
     text-align: center;
     padding: 1rem;
     border: 1px solid;

@@ -1,7 +1,15 @@
 import { writable } from "svelte/store";
 import { readable } from 'svelte/store';
 
-// Store for theme
+// Global Variables and Functionality -----------------------------------------------------------------------------------------
+export let possibleViews = writable(["Home", "Previous Entry", "Searched Entry", "Edit Entry"]);
+export let currentView = writable("Home");
+export let EditingDate = writable("");
+
+
+// Global Variables and Functionality -----------------------------------------------------------------------------------------
+
+// Theme Stuff -----------------------------------------------------------------------------------------------------------------
 export const colors = {
   background: {
     grey: "#d3d3d3",
@@ -48,7 +56,9 @@ export function setPrimaryColor(color) {
 export function setSecondaryColor(color) {
   secondaryColor.set(colors.secondary[color]);
 }
+// Theme Stuff -----------------------------------------------------------------------------------------------------------------
 
+// Fake Data Stuff -----------------------------------------------------------------------------------------------------------------
 export let userData = writable({
   name: " Jane Doe",
   email: "JaneDoe@example.com",
@@ -60,7 +70,7 @@ export let userData = writable({
 // Put fake data into daily entries, so that user can look back on their entries
 export let dailyEntries = writable([
   {
-    date: "9/1/24",
+    date: "9/1/2024",
     time: "12:00",
     feelingActivity: {
       type: "Feeling",
@@ -80,7 +90,7 @@ export let dailyEntries = writable([
         "Motivated",
         "Unmotivated"
       ],
-      selected: ["Happy"]
+      selected: "Happy"
     },
     imageActivity: {
       type: "Image",
@@ -115,7 +125,7 @@ export let dailyEntries = writable([
     }
   },
   {
-    date: "9/2/24",
+    date: "9/2/2024",
     time: "12:00",
     feelingActivity: {
       type: "Feeling",
@@ -135,7 +145,7 @@ export let dailyEntries = writable([
         "Motivated",
         "Unmotivated"
       ],
-      selected: ["Sad"]
+      selected: "Sad"
     },
     imageActivity: {
       type: "Image",
@@ -146,7 +156,7 @@ export let dailyEntries = writable([
     prayerActivity: {
       type: "Prayer",
       description: "Indicate if you prayed today",
-      boolPrayed: true,
+      boolPrayed: false,
       completed: true
     },
     journalActivity: {
@@ -170,7 +180,7 @@ export let dailyEntries = writable([
     }
   },
   {
-    date: "9/4/24",
+    date: "9/4/2024",
     time: "12:00",
     feelingActivity: {
       type: "Feeling",
@@ -190,7 +200,7 @@ export let dailyEntries = writable([
         "Motivated",
         "Unmotivated"
       ],
-      selected: ["Happy"]
+      selected: "Happy"
     },
     imageActivity: {
       type: "Image",
@@ -225,7 +235,10 @@ export let dailyEntries = writable([
     }
   },
 ]);
+// Fake Data Stuff -----------------------------------------------------------------------------------------------------------------
 
+
+// Activity Stuff -----------------------------------------------------------------------------------------------------------------
 // This is more of template for the daily entry, I used chatgpt to turn this into a class
 // export const DailyEntry = {
 //   date: "",
@@ -319,7 +332,7 @@ constructor() {
     "Calm", "Tired", "Energetic", "Focused", "Distracted",
     "Motivated", "Unmotivated"
     ];
-    this.selected = [];
+    this.selected = "";
 }
 }
 
@@ -358,5 +371,5 @@ constructor() {
     this.text = "";
 }
 }
-
+// Activity Stuff -----------------------------------------------------------------------------------------------------------------
   

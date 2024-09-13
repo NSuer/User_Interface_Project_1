@@ -112,10 +112,13 @@ I did 10-plus-10 MINUTES, because I was having trouble coming up with more ideas
 
 ## Use of AI
 - Optional- Use of AI-  If you used AI, describe how.  Did you identify strengths/limitations of using AI for your application. Tell your reader how you used an AI tool to help you with your project. Note limitations and places where the AI responses were insufficient.  Comment on whether it was helpful and how.  
-- I used AI to convert this documentation from a word document to markdown. This was before I worked on design work though. This was heplpful, but the markdown wasn't perfect
-- I used AI as a css debugging tool. I used co-pilot to explain to me what things did and ask what is causing certain behavior. This was helpful but like 30% of the time it was wrong.
+- I used chatGPT to convert this documentation from a word document to markdown. This was before I worked on design work though. This was heplpful, but the markdown wasn't perfect
+- I used github co-pilot as a css debugging tool. I used co-pilot to explain to me what things did and ask what is causing certain behavior. This was helpful but like 30% of the time it was wrong.
 - I used github co-pilot to turn an array structure I had into classes for my activity. This was helpful and it didn't make any mistakes.
+- I used github co-pilot to generate my fake data. It was just pattern matching over the classes that were created.
 - In general I use github co-pilot. But this usually is just pattern matching and autocomplete so that I can work faster.
+- I used chatGPT to get me started on my clickable calendar component. I did this because I didn't know where to start. Here is the prompt I used: "Make me a clickable calendar component using vite + svelte + js. It should be a full year calendar with arrows to navigate between months. It should look in an array called dailyEntries. If there is an entry for that day it should have a green circle, to indicate there is a journal entry. If a date is clicked it should call a function with that date as an argument.". I also gave it my fake data for dailyEntries. An image of what it gave me is below. This was really helpful and it suprised me with what it could do. The most helpful thing gonestly was getting date-fns and the functionality working. However the styling was really bad and I still needed to get the previous entry functionality working. 
+![](Sketches/ChatGPTOutputForCalendar.png)
 - TODO 
     
 ## Future Work
