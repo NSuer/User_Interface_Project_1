@@ -5,9 +5,11 @@ import { readable } from 'svelte/store';
 export let possibleViews = writable(["Home", "Previous Entry", "Searched Entry", "Edit Entry"]);
 export let currentView = writable("Home");
 export let EditingDate = writable("");
-
-
 // Global Variables and Functionality -----------------------------------------------------------------------------------------
+
+// Goals ----------------------------------------------------------------------------------------------------------------------
+
+// Goals ----------------------------------------------------------------------------------------------------------------------
 
 // Theme Stuff -----------------------------------------------------------------------------------------------------------------
 export const colors = {

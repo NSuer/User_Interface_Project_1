@@ -24,6 +24,27 @@
   }
 
   function saveEntry() {
+
+    // Check to see whats been completed
+    if (tempFeelingActivity.selected !== ""){
+      tempFeelingActivity.completed = true;
+    }
+    if (tempImageActivity.time !== null){
+      tempImageActivity.completed = true;
+    }
+    if (tempPrayerActivity.boolPrayed === true) {
+      tempPrayerActivity.completed = true;
+    }
+    if (tempJournalActivity.text !== "") {
+      tempJournalActivity.completed = true;
+    }
+    if (tempReflectionActivity.text !== "" && tempReflectionActivity.verse !== "") {
+      tempReflectionActivity.completed = true;
+    }
+    if (tempSilentContemplationActivity.text !== "") {
+      tempSilentContemplationActivity.completed = true;
+    }
+
     if ($currentView = "Edit Entry") {
       // if there is not an entry save for the current date, create a new entry
       if ($dailyEntries.filter(entry => entry.date === date).length === 0) {
@@ -38,7 +59,6 @@
           reflectionActivity: tempReflectionActivity,
           silentContemplationActivity: tempSilentContemplationActivity
         };
-
 
         dailyEntries.update(entries => {
           entries.push(NewDailyEntry);

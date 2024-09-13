@@ -14,12 +14,35 @@
     }
     let daysUsing = getDaysUsing();
 
+    function getDaysUsingCurrentMonth() {
+        let count = 0;
+        let date = new Date().toLocaleDateString();
+        
+        for (let i = 0; i < $dailyEntries.length; i++) {
+            let entryDate = new Date($dailyEntries[i].date);
+            if (entryDate.getMonth() === new Date().getMonth() && entryDate.getFullYear() === new Date().getFullYear()) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    let daysInCurrentMonth = getDaysUsingCurrentMonth();
+
+    let daysInCurrentMonthCount = new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0).getDate();
+
 </script>
 
 <main>
     <h2 style="color: {$primaryColor};">Goals and Stats</h2>
     <p style="color: {$primaryColor};"><strong>Days Since Beginning:</strong> {daysUsing}</p>
     <p style="color: {$primaryColor};"><strong>Active Days:</strong> {$userData.daysActive}</p>
+
+    <!-- Pie Graph to show percent of days in last month -->
+    <p>{daysInCurrentMonth}</p>
+    <p>{daysInCurrentMonthCount}</p>
+
+    <!-- Pie Graph to show percent of days in goal -->
 
 </main>
 
