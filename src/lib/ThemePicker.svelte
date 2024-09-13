@@ -61,34 +61,32 @@
 </script>
 
 <main>
-    <h2 style="color: {$primaryColor};">Theme Picker</h2>
-    <h3 style="color: {$primaryColor};">Click each circle to change</h3>
-    <div class="theme_picker_single_color">
-        <label style="color: {$primaryColor};" for="background_color">Background Color</label>
-        <button class="circle_button" style="background-color: {$backgroundColor};" on:click={backgroundColorChange}></button>
+    <h3 style="color: {$primaryColor};">Click each circle to change theme</h3>
+    <div class="button_container">
+        <div class="theme_picker_single_color">
+            <!-- <label style="color: {$primaryColor};" for="background_color">Background Color</label> -->
+            <button class="circle_button" style="background-color: {$backgroundColor};" on:click={backgroundColorChange}></button>
+        </div>
+        <div class="theme_picker_single_color">
+            <!-- <label style="color: {$primaryColor};" for="primary_color">Primary Color</label> -->
+            <button class="circle_button" style="background-color: {$primaryColor};" on:click={primaryColorChange}></button>
+        </div>
+        <div class="theme_picker_single_color">
+            <!-- <label style="color: {$primaryColor};" for="secondary_color">Secondary Color</label> -->
+            <button class="circle_button" style="background-color: {$secondaryColor};" on:click={secondaryColorChange}></button>
+        </div>
     </div>
-    <div class="theme_picker_single_color">
-        <label style="color: {$primaryColor};" for="primary_color">Primary Color</label>
-        <button class="circle_button" style="background-color: {$primaryColor};" on:click={primaryColorChange}></button>
-    </div>
-    <div class="theme_picker_single_color">
-        <label style="color: {$primaryColor};" for="secondary_color">Secondary Color</label>
-        <button class="circle_button" style="background-color: {$secondaryColor};" on:click={secondaryColorChange}></button>
-    </div>
-
-
 </main>
 
 <style>
-    main {
-        display: grid;
-        grid-template-columns: 1fr 2fr 3fr;
-        grid-template-rows: auto auto;
+    .button_container {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
     }
     .theme_picker_single_color {
         display: flex;
         flex-direction: column;
-        gap: 1rem;
     }
     .circle_button {
         width: 50px;

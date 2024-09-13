@@ -27,7 +27,7 @@
 
 <main>
   <header>
-    <div class="box_header">
+    <div class="box_header" style="border: 1px solid {$secondaryColor};">
       <h1 style="color: {$primaryColor};">Spiritual Journal</h1>
       <ThemePicker />
     </div>
@@ -36,12 +36,12 @@
     <div class="container">
     <!-- User Overview Section -->
       <div class="left-column">
-          <div class="box">
+          <div class="box" style="border: 1px solid {$secondaryColor};">
             <h2 style="color: {$primaryColor};">User Overview</h2>
             <p style="color: {$primaryColor};"><strong>Days Since Beginning:</strong> {daysUsing}</p>
             <p style="color: {$primaryColor};"><strong>Active Days:</strong> {daysActive}</p>
           </div>
-          <div class="box">
+          <div class="box" style="border: 1px solid {$secondaryColor};">
             <h2 style="color: {$primaryColor};">User Overview</h2>
             <p style="color: {$primaryColor};"><strong>Days Since Beginning:</strong> {daysUsing}</p>
             <p style="color: {$primaryColor};"><strong>Active Days:</strong> {daysActive}</p>
@@ -50,7 +50,7 @@
     
       <!-- Activity Tracking Section -->
       <div class="right-column">
-        <div class="padding_container">
+        <div class="padding_container" style="border: 1px solid {$secondaryColor};">
           <ActivtiesSection />
         </div>
       </div>
