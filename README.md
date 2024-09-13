@@ -1,5 +1,7 @@
 # User_Interface_Project_1
 
+Public webpage: https://nsuer.github.io/User_Interface_Project_1/
+
 # Assignment 3: Project check-in
 
 1. Where does your project currently stand?  
