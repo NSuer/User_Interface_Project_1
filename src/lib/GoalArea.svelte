@@ -33,13 +33,9 @@
         let count = 0;
         let date = new Date().toLocaleDateString();
         let entryDate = new Date().toLocaleDateString();
-        console.log($dailyEntries);
 
         for (let i = $dailyEntries.length -1; i > 0 ; i--) {
             entryDate = new Date($dailyEntries[i].date).toLocaleDateString();
-            console.log(entryDate);
-            console.log(date);
-            console.log(count);
             if (entryDate === date) {
                 count++;
                 let TempDate = new Date(date);

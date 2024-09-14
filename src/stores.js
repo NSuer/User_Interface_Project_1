@@ -248,6 +248,9 @@ export let dailyEntries = writable([
 //   time: "",
 //   activities: []
 // };
+export let possibleActivities = writable(["Feeling", "Image", "Prayer", "Journal", "Reflection", "Silent Contemplation"]);
+export let visableActivities = writable(["Feeling", "Image", "Prayer", "Journal", "Reflection", "Silent Contemplation"]);
+export let invisibleActivities = writable([]);
 export class DailyEntry {
   constructor(date = "", time = "", activities = []) {
     this.date = date;
