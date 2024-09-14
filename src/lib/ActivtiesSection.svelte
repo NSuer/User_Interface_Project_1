@@ -189,6 +189,7 @@
       <h2 style="color: {$primaryColor};">{tempImageActivity.type}</h2>
       <h3 style="color: {$primaryColor};">{tempImageActivity.description}</h3>
       <label style="color: {$primaryColor};">
+        Enter time (minutes) spent:
         <input type="number" placeholder="Enter time (minutes) spent"  style="background-color:{$secondaryColor}" bind:value={tempImageActivity.time} disabled={DisableInputs}/>
       </label>
     </div>
