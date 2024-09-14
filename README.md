@@ -5,8 +5,10 @@ Public webpage: https://nsuer.github.io/User_Interface_Project_1/
 # Assignment 3: Project check-in
 
 1. Where does your project currently stand?  
+  - I have finished all the design work, interviews, and sketches. I have also completed Level 1 and 2 Implementation Goals. I am currently working on Level 3. I already have the ability to change color themes and have set up all the data needed to track goals. I am currently working on implementing and designing the component for goals.
 
 2. What is your plan for completing the project by the deadline?
+  - I really don't have that much more to implement. I plan on working on it throughout the week and doing the final documentation and turning it in saturday.
 
 3. To help you space out your work, please attach a draft (or the final) version of your design work
     - All of my design work is below &darr;
