@@ -5,6 +5,7 @@ import { readable } from 'svelte/store';
 export let possibleViews = writable(["Home", "Previous Entry", "Searched Entry", "Edit Entry"]);
 export let currentView = writable("Home");
 export let EditingDate = writable("");
+export let SearchData = writable("");
 // Global Variables and Functionality -----------------------------------------------------------------------------------------
 
 // Goals ----------------------------------------------------------------------------------------------------------------------

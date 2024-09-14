@@ -1,7 +1,7 @@
 <script>
     import { dailyEntries } from '../stores.js';
     import { backgroundColor, primaryColor, secondaryColor } from '../stores.js';
-    import {currentView, EditingDate} from '../stores.js';
+    import {currentView, EditingDate, SearchData} from '../stores.js';
     // @ts-ignore
     import { format, startOfMonth, addMonths, subMonths, eachDayOfInterval, isToday, isSameDay, getDaysInMonth, startOfYear, endOfYear } from 'date-fns';
   
@@ -40,6 +40,11 @@
   
 
 <main>
+    <div class="SearchBar">
+        <label for="search" style="color: {$primaryColor};">Keyword Search:</label>
+        <input type="text" style="background-color:{$secondaryColor}" placeholder="Search" bind:value={$SearchData}/>
+    </div>
+
     <div class="calendar-navigation">
         <button on:click={goToPreviousMonth} style="background-color:{$primaryColor}">‹</button>
         <span style="color: {$primaryColor};">{format(currentMonth, 'MMMM yyyy')}</span>

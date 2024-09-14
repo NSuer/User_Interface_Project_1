@@ -3,10 +3,11 @@
   import { Activity, DailyEntry } from '../stores.js';
   import { dailyEntries } from '../stores.js';
   import { userData } from '../stores.js';
-  import { currentView, EditingDate } from '../stores.js';
+  import { currentView, EditingDate, SearchData } from '../stores.js';
   
   import { FeelingActivity, ImageActivity, PrayerActivity, JournalActivity, ReflectionActivity,SilentContemplationActivity, visableActivities, invisibleActivities } from '../stores.js';
   import { backgroundColor, primaryColor, secondaryColor } from '../stores.js';
+  import { format, startOfMonth, addMonths, subMonths, eachDayOfInterval, isToday, isSameDay, getDaysInMonth, startOfYear, endOfYear } from 'date-fns';
 
   console.log($visableActivities);
 
@@ -146,6 +147,13 @@
     }
   }
 
+  const formatDate = (date) => format(date, 'M/d/yyyy');
+  const handleDateClick = (date) => {
+    console.log(`Date clicked: ${formatDate(date)}`);
+    $EditingDate = formatDate(date);
+    $currentView = "Previous Entry";
+  };
+
   function startEditing() {
     // Will Un-disable the input fields and allow the user to edit the entries
     $currentView = "Edit Entry"
@@ -207,110 +215,132 @@
     }
   }
 
+  $: {
+    if ($SearchData !== "") {
+      $currentView = "Searched Entry";
+    } else {
+      $currentView = "Home";
+    }
+  }
+
 </script>
   
 <main>
-  <p style="color: {$primaryColor};"><strong>Name:</strong> {name}</p>
-  <p style="color: {$primaryColor};"><strong>Current Date/Time:</strong> {date} {time}</p>
-  {#if $currentView === "Previous Entry" || $currentView === "Edit Entry"}
-    <p style="color: {$primaryColor};"><strong>Currently Viewing:</strong> {$EditingDate}</p>
-  {/if}
-  
-  {#if validDate === false}
-    <div class="invalidDate">
-      <p>There is no data for this date</p>
-      <p>Please select a date with a green dot or the current date</p>
+  {#if $currentView === "Searched Entry"}
+    <!-- Search through all the journal entries, show entry for each, and go to day of clicked -->
+    <div class="SearchResults">
+      {#each $dailyEntries as entry}
+        {#if entry.journalActivity.text.toLowerCase().includes($SearchData.toLowerCase())}
+          <p style="color: {$primaryColor};"><strong>Date:</strong> {entry.date}</p>
+          <p style="color: {$primaryColor};"><strong>Time:</strong> {entry.time}</p>
+          <p style="color: {$primaryColor};"><strong>Journal Entry:</strong> {entry.journalActivity.text}</p>
+          <button on:click={() => handleDateClick(entry.date)} style="background-color:{$primaryColor}">Go to Entry</button>
+        {/if}
+      {/each}
     </div>
   {:else}
-
-    <label style="color: {$primaryColor};">
-      <strong>Add Activity:</strong>
-      <select bind:value={selectAddActivity} on:change={AddActivity} style="background-color:{$secondaryColor}">
-        <option value="" disabled selected>Select an activity</option>
-        {#each $invisibleActivities as activity}
-          <option value={activity} style="background-color:{$secondaryColor}">{activity}</option>
-        {/each}
-    </label>
-
-    {#if $visableActivities.includes("Feeling")}
-      <!-- Feelings -->
-      <div>
-        <h2 style="color: {$primaryColor};">{tempFeelingActivity.type}</h2>
-        <h3 style="color: {$primaryColor};">{tempFeelingActivity.description}</h3>
-        <select bind:value={tempFeelingActivity.selected}>
-        {#each tempFeelingActivity.options as option}
-        <option value={option} style="background-color:{$secondaryColor}" disabled={DisableInputs}>{option}</option>
-        {/each}
-        </select>
-      </div>
-      <button class="RemoveActivityButton" on:click={() => removeActivity("Feeling")} style="background-color:{$primaryColor}" >Remove Activity</button>
+    <p style="color: {$primaryColor};"><strong>Name:</strong> {name}</p>
+    <p style="color: {$primaryColor};"><strong>Current Date/Time:</strong> {date} {time}</p>
+    {#if $currentView === "Previous Entry" || $currentView === "Edit Entry"}
+      <p style="color: {$primaryColor};"><strong>Currently Viewing:</strong> {$EditingDate}</p>
     {/if}
-
-    {#if $visableActivities.includes("Image")}
-      <!-- Image Upload -->
-      <div>
-        <h2 style="color: {$primaryColor};">{tempImageActivity.type}</h2>
-        <h3 style="color: {$primaryColor};">{tempImageActivity.description}</h3>
-        <label style="color: {$primaryColor};">
-        Enter time (minutes) spent:
-        <input type="number" placeholder="Enter time (minutes) spent"  style="background-color:{$secondaryColor}" bind:value={tempImageActivity.time} disabled={DisableInputs}/>
-        </label>
+    
+    {#if validDate === false}
+      <div class="invalidDate">
+        <p>There is no data for this date</p>
+        <p>Please select a date with a green dot or the current date</p>
       </div>
-      <button class="RemoveActivityButton" on:click={() => removeActivity("Image")} style="background-color:{$primaryColor}" >Remove Activity</button>
-    {/if}
+    {:else}
 
-    {#if $visableActivities.includes("Prayer")}
-      <!-- Prayer -->
-      <div>
-        <h2 style="color: {$primaryColor};">{tempPrayerActivity.type}</h2>
-        <h3 style="color: {$primaryColor};">{tempPrayerActivity.description}</h3>
-        <label style="color: {$primaryColor};">
-        <input type="checkbox" style="background-color:{$secondaryColor}" bind:checked={tempPrayerActivity.boolPrayed} disabled={DisableInputs}/>
-        Did you pray today?
-        </label>
-      </div>
-      <button class="RemoveActivityButton" on:click={() => removeActivity("Prayer")} style="background-color:{$primaryColor}" >Remove Activity</button>
-    {/if}
+      <label style="color: {$primaryColor};">
+        <strong>Add Activity:</strong>
+        <select bind:value={selectAddActivity} on:change={AddActivity} style="background-color:{$secondaryColor}">
+          <option value="" disabled selected>Select an activity</option>
+          {#each $invisibleActivities as activity}
+            <option value={activity} style="background-color:{$secondaryColor}">{activity}</option>
+          {/each}
+      </label>
 
-    {#if $visableActivities.includes("Journal")}
-      <!-- Journal -->
-      <div>
-        <h2 style="color: {$primaryColor};">{tempJournalActivity.type}</h2>
-        <h3 style="color: {$primaryColor};">{tempJournalActivity.description}</h3>
-        <textarea placeholder="Write about your day and spiritual journey..."  style="background-color:{$secondaryColor}" bind:value={tempJournalActivity.text} disabled={DisableInputs}></textarea>
-      </div>
-      <button class="RemoveActivityButton" on:click={() => removeActivity("Journal")} style="background-color:{$primaryColor}" >Remove Activity</button>
-    {/if}
-
-    {#if $visableActivities.includes("Reflection")}
-      <!-- Reflection -->
-      <div>
-        <h2 style="color: {$primaryColor};">{tempReflectionActivity.type}</h2>
-        <h3 style="color: {$primaryColor};">{tempReflectionActivity.description}</h3>
-        <textarea placeholder="Write the verse or passage..." style="background-color:{$secondaryColor}" bind:value={tempReflectionActivity.verse} disabled={DisableInputs}></textarea>
-        <textarea placeholder="Write your thoughts..." style="background-color:{$secondaryColor}" bind:value={tempReflectionActivity.text} disabled={DisableInputs}></textarea>
-      </div>
-      <button class="RemoveActivityButton" on:click={() => removeActivity("Reflection")} style="background-color:{$primaryColor}" >Remove Activity</button>
-    {/if}
-
-    {#if $visableActivities.includes("Silent Contemplation")}
-      <!-- Silent Contemplation -->
-      <div>
-        <h2 style="color: {$primaryColor};">{tempSilentContemplationActivity.type}</h2>
-        <h3 style="color: {$primaryColor};">{tempSilentContemplationActivity.description}</h3>
-        <textarea placeholder="Write your thoughts after silent contemplation..." style="background-color:{$secondaryColor}" bind:value={tempSilentContemplationActivity.text} disabled={DisableInputs}></textarea>
-      </div>
-      <button class="RemoveActivityButton" on:click={() => removeActivity("Silent Contemplation")} style="background-color:{$primaryColor}" >Remove Activity</button>
-    {/if}
-
-    <!-- Save Button -->
-    <div class="section">
-      <button on:click={saveEntry} style="background-color:{$primaryColor}" disabled={DisableInputs}>Save</button>
-      <button on:click={startEditing} style="background-color:{$primaryColor}">Edit</button>
-      {#if successMessage}
-        <p class="success-message">{successMessage}</p>
+      {#if $visableActivities.includes("Feeling")}
+        <!-- Feelings -->
+        <div>
+          <h2 style="color: {$primaryColor};">{tempFeelingActivity.type}</h2>
+          <h3 style="color: {$primaryColor};">{tempFeelingActivity.description}</h3>
+          <select bind:value={tempFeelingActivity.selected}>
+          {#each tempFeelingActivity.options as option}
+          <option value={option} style="background-color:{$secondaryColor}" disabled={DisableInputs}>{option}</option>
+          {/each}
+          </select>
+        </div>
+        <button class="RemoveActivityButton" on:click={() => removeActivity("Feeling")} style="background-color:{$primaryColor}" >Remove Activity</button>
       {/if}
-    </div>
+
+      {#if $visableActivities.includes("Image")}
+        <!-- Image Upload -->
+        <div>
+          <h2 style="color: {$primaryColor};">{tempImageActivity.type}</h2>
+          <h3 style="color: {$primaryColor};">{tempImageActivity.description}</h3>
+          <label style="color: {$primaryColor};">
+          Enter time (minutes) spent:
+          <input type="number" placeholder="Enter time (minutes) spent"  style="background-color:{$secondaryColor}" bind:value={tempImageActivity.time} disabled={DisableInputs}/>
+          </label>
+        </div>
+        <button class="RemoveActivityButton" on:click={() => removeActivity("Image")} style="background-color:{$primaryColor}" >Remove Activity</button>
+      {/if}
+
+      {#if $visableActivities.includes("Prayer")}
+        <!-- Prayer -->
+        <div>
+          <h2 style="color: {$primaryColor};">{tempPrayerActivity.type}</h2>
+          <h3 style="color: {$primaryColor};">{tempPrayerActivity.description}</h3>
+          <label style="color: {$primaryColor};">
+          <input type="checkbox" style="background-color:{$secondaryColor}" bind:checked={tempPrayerActivity.boolPrayed} disabled={DisableInputs}/>
+          Did you pray today?
+          </label>
+        </div>
+        <button class="RemoveActivityButton" on:click={() => removeActivity("Prayer")} style="background-color:{$primaryColor}" >Remove Activity</button>
+      {/if}
+
+      {#if $visableActivities.includes("Journal")}
+        <!-- Journal -->
+        <div>
+          <h2 style="color: {$primaryColor};">{tempJournalActivity.type}</h2>
+          <h3 style="color: {$primaryColor};">{tempJournalActivity.description}</h3>
+          <textarea placeholder="Write about your day and spiritual journey..."  style="background-color:{$secondaryColor}" bind:value={tempJournalActivity.text} disabled={DisableInputs}></textarea>
+        </div>
+        <button class="RemoveActivityButton" on:click={() => removeActivity("Journal")} style="background-color:{$primaryColor}" >Remove Activity</button>
+      {/if}
+
+      {#if $visableActivities.includes("Reflection")}
+        <!-- Reflection -->
+        <div>
+          <h2 style="color: {$primaryColor};">{tempReflectionActivity.type}</h2>
+          <h3 style="color: {$primaryColor};">{tempReflectionActivity.description}</h3>
+          <textarea placeholder="Write the verse or passage..." style="background-color:{$secondaryColor}" bind:value={tempReflectionActivity.verse} disabled={DisableInputs}></textarea>
+          <textarea placeholder="Write your thoughts..." style="background-color:{$secondaryColor}" bind:value={tempReflectionActivity.text} disabled={DisableInputs}></textarea>
+        </div>
+        <button class="RemoveActivityButton" on:click={() => removeActivity("Reflection")} style="background-color:{$primaryColor}" >Remove Activity</button>
+      {/if}
+
+      {#if $visableActivities.includes("Silent Contemplation")}
+        <!-- Silent Contemplation -->
+        <div>
+          <h2 style="color: {$primaryColor};">{tempSilentContemplationActivity.type}</h2>
+          <h3 style="color: {$primaryColor};">{tempSilentContemplationActivity.description}</h3>
+          <textarea placeholder="Write your thoughts after silent contemplation..." style="background-color:{$secondaryColor}" bind:value={tempSilentContemplationActivity.text} disabled={DisableInputs}></textarea>
+        </div>
+        <button class="RemoveActivityButton" on:click={() => removeActivity("Silent Contemplation")} style="background-color:{$primaryColor}" >Remove Activity</button>
+      {/if}
+
+      <!-- Save Button -->
+      <div class="section">
+        <button on:click={saveEntry} style="background-color:{$primaryColor}" disabled={DisableInputs}>Save</button>
+        <button on:click={startEditing} style="background-color:{$primaryColor}">Edit</button>
+        {#if successMessage}
+          <p class="success-message">{successMessage}</p>
+        {/if}
+      </div>
+    {/if}
   {/if}
 </main>
       
