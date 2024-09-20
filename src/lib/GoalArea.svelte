@@ -96,7 +96,14 @@
             "mark": "arc",
             "encoding": {
                 "theta": {"field": "value", "type": "quantitative"},
-                "color": {"field": "category", "type": "nominal"}
+                "color": {
+                    "field": "category",
+                    "type": "nominal",
+                    "scale": {
+                        "domain": ["Days Remaining", "Days Completed"],
+                        "range": [$secondaryColor, $primaryColor]
+                    }
+                }
             },
         };
     }

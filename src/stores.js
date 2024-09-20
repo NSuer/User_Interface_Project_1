@@ -25,8 +25,6 @@ export const colors = {
     black: "#333333",
     red: "#cc6666",
     blue: "#6699cc",
-    yellow: "#cccc66",
-    green: "#66cc66",
     orange: "#cc9966",
     brown: "#8b4513"
   },
@@ -34,8 +32,6 @@ export const colors = {
     black: "#333333",
     red: "#cc6666",
     blue: "#6699cc",
-    yellow: "#cccc66",
-    green: "#66cc66",
     orange: "#cc9966",
     brown: "#8b4513"
   }
@@ -47,7 +43,7 @@ export let secondaryArray = Object.values(colors.secondary);
 
 export let backgroundColor = writable(colors.background.grey);
 export let primaryColor = writable(colors.primary.black);
-export let secondaryColor = writable(colors.secondary.black);
+export let secondaryColor = writable(colors.secondary.blue);
 
 export function setBackgroundColor(color) {
   backgroundColor.set(colors.background[color]);

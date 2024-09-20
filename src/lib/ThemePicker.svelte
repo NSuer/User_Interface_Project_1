@@ -64,16 +64,16 @@
     <h3 style="color: {$primaryColor};">Click each circle to change theme</h3>
     <div class="button_container">
         <div class="theme_picker_single_color">
-            <!-- <label style="color: {$primaryColor};" for="background_color">Background Color</label> -->
             <button class="circle_button" style="background-color: {$backgroundColor};" on:click={backgroundColorChange}></button>
+            <label style="color: {$primaryColor};" for="background_color">Background</label>
         </div>
         <div class="theme_picker_single_color">
-            <!-- <label style="color: {$primaryColor};" for="primary_color">Primary Color</label> -->
             <button class="circle_button" style="background-color: {$primaryColor};" on:click={primaryColorChange}></button>
+            <label style="color: {$primaryColor};" for="primary_color">Primary</label>
         </div>
         <div class="theme_picker_single_color">
-            <!-- <label style="color: {$primaryColor};" for="secondary_color">Secondary Color</label> -->
             <button class="circle_button" style="background-color: {$secondaryColor};" on:click={secondaryColorChange}></button>
+            <label style="color: {$primaryColor};" for="secondary_color">Secondary</label>
         </div>
     </div>
 </main>
@@ -86,7 +86,8 @@
     }
     .theme_picker_single_color {
         display: flex;
-        flex-direction: column;
+        align-items: center;
+        gap: 10px;
     }
     .circle_button {
         width: 50px;

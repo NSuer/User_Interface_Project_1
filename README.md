@@ -119,6 +119,7 @@ I implemented my project using mostly svelte and js. I had to use ts at only one
 - In general I use github co-pilot. But this usually is just pattern matching and autocomplete so that I can work faster.
 - I used chatGPT to get me started on my clickable calendar component. I did this because I didn't know where to start. Here is the prompt I used: "Make me a clickable calendar component using vite + svelte + js. It should be a full year calendar with arrows to navigate between months. It should look in an array called dailyEntries. If there is an entry for that day it should have a green circle, to indicate there is a journal entry. If a date is clicked it should call a function with that date as an argument.". I also gave it my fake data for dailyEntries. An image of what it gave me is below. This was really helpful and it surprised me with what it could do. The most helpful thing honestly was getting date-fns and the functionality working. However the styling was really bad and I still needed to get the previous entry functionality working.
 ![](Sketches/ChatGPTOutputForCalendar.png)
+- Used github co-pilot to help me get the color changing in my vega-lite pie graph. It got it right the first time.
     
 ## Future Work
 A verse / what I've read tracker. I believe this would be a large undertaking and would be out of scope for this project. I did not have time to implement this

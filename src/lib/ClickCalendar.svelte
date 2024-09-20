@@ -90,7 +90,7 @@
         display: block;
         width: 8px;
         height: 8px;
-        background-color: green;
+        background-color: #66FF99;
         border-radius: 50%;
         margin: 0 auto;
     }

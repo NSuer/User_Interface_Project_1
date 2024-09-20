@@ -364,7 +364,13 @@
     margin-bottom: 10px;
   }
 
-  
+  input {
+    color: white;
+  }
+
+  textarea {
+    color: white;
+  }
   
 </style>
 
