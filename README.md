@@ -16,7 +16,7 @@ Public webpage: https://nsuer.github.io/User_Interface_Project_1/
 # Documentation 
 
 ## Description of the project
-TODO
+My Religious Journal project is a webpage designed to be a religious journaling application. Users have the ability to record their daily religious time. This includes journaling, keeping track of verses, prayer, and reflection activities. Users also have the ability to navigate to previous entries, search for revious entries, see their consistency, set goals, and change themes. 
 
 ## Interviews
 
@@ -66,11 +66,11 @@ I hope to learn about how a prospective user would want to use an interface to m
 ## Design
 
 ### Design Goals and Requirements
-  - Quickly being able to see their consistency.
-  - Being able to switch themes between dark, light, pink, and purple.
-  - Journaling, keeping track of verses, prayer, and reflection activities.
-  - Viewing previous journal entries.
-  - Journal entry search bar ( this is my Level 4 Implementation Goal ).
+  - Must be able to quickly being able to see their consistency of journaling.
+  - Must be able to switch themes between dark, light, pink, and purple.
+  - Must have journaling, keeping track of verses, prayer, and reflection activities.
+  - Must have the ablility to view previous journal entries.
+  - Must have a journal entry search bar ( this is my Level 4 Implementation Goal ).
 
 ### Sketching Design Alternatives
 I did 10-plus-10 MINUTES, because I was having trouble coming up with more ideas. It said this was allowed in the project instructions.
@@ -100,8 +100,7 @@ I did 10-plus-10 MINUTES, because I was having trouble coming up with more ideas
 - Carson: Carson ntoiced there was no label for the setting goals area and wondered if you could set other goals.
 
 ### Mock User Profile
-- Jane Doe (she/her) is a 20 year old that wants to be more consistent with her daily spiritual time. During that time she likes to read, journal, and pray.
-- Jane Doe wants to use this application as a way to make sure she sticks to her goals with daily spiritual time, she also wants to look at her previous journal entries in the future.
+Jane Doe (she/her) is a 20 year old that wants to be more consistent with her daily spiritual time. During that time she likes to read, journal, and pray. Jane Doe wants to use this application as a way to make sure she sticks to her goals with daily spiritual time, she also wants to look at her previous journal entries in the future.
 
 ## Description of the interface in detail:
 - Features and controls
@@ -109,8 +108,7 @@ I did 10-plus-10 MINUTES, because I was having trouble coming up with more ideas
 - TODO 
 
 ## Implementation of this application 
-- Explain how you implemented this application (libraries, code structure....)
-- TODO
+I implemented my project using mostly svelte and js. I had to use ts at only one point, which was to use Vega-Lite. The professor recommended this library, so I assumed doing this was okay. Outside of using svelte and js, the only libraries I used were Vega-Lite and date-fns. Vega-lite was used in my goal section to create the pie graph. Date-fns was used to help me with dates and the calendar. My code structure consisted of my main page, components for each section, and a single store. My main page was used to section off certain areas of the UI to create common regions, similarity, and continuity. Each section was then split into a seperate component, so that the code would be more modular and readable. Each componenet would control it's own styling and functionality. The final thing I used in my project was a svelte store. I used this as a sort of global variable hub. This allowed me to have a single place for important variables and also allowed for reactivity between components. An example of these variables would be themes, stored journal entries, and what view/mode the UI is in. 
 
 ## Use of AI
 - Optional- Use of AI-  If you used AI, describe how.  Did you identify strengths/limitations of using AI for your application. Tell your reader how you used an AI tool to help you with your project. Note limitations and places where the AI responses were insufficient.  Comment on whether it was helpful and how.  
@@ -121,7 +119,6 @@ I did 10-plus-10 MINUTES, because I was having trouble coming up with more ideas
 - In general I use github co-pilot. But this usually is just pattern matching and autocomplete so that I can work faster.
 - I used chatGPT to get me started on my clickable calendar component. I did this because I didn't know where to start. Here is the prompt I used: "Make me a clickable calendar component using vite + svelte + js. It should be a full year calendar with arrows to navigate between months. It should look in an array called dailyEntries. If there is an entry for that day it should have a green circle, to indicate there is a journal entry. If a date is clicked it should call a function with that date as an argument.". I also gave it my fake data for dailyEntries. An image of what it gave me is below. This was really helpful and it suprised me with what it could do. The most helpful thing gonestly was getting date-fns and the functionality working. However the styling was really bad and I still needed to get the previous entry functionality working. 
 ![](Sketches/ChatGPTOutputForCalendar.png)
-- TODO 
     
 ## Future Work
 - A verse / what I've read tracker. I beleive this would be a large undertaking and would be out of scopr for this project. I did not have time to implement this
