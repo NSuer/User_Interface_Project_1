@@ -121,7 +121,7 @@ I implemented my project using mostly svelte and js. I had to use ts at only one
 ![](Sketches/ChatGPTOutputForCalendar.png)
     
 ## Future Work
-- A verse / what I've read tracker. I believe this would be a large undertaking and would be out of scope for this project. I did not have time to implement this
+A verse / what I've read tracker. I believe this would be a large undertaking and would be out of scope for this project. I did not have time to implement this
 
 ## Demo Video
 - Include a 2-3 minute demo video, showing your interface in action.
