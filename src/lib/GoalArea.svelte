@@ -53,6 +53,8 @@
     let daysInCurrentMonth = getDaysUsingCurrentMonth();
     let daysInCurrentMonthCount = new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0).getDate();
 
+    let currentGoalNum = $goal - daysInCurrentMonth;
+
     $: {
         currentStreak = getCurrentStreak();
         daysInCurrentMonth = getDaysUsingCurrentMonth();
@@ -62,6 +64,13 @@
         if ($goal > daysInCurrentMonthCount) {
             $goal = daysInCurrentMonthCount;
         }
+
+        if (daysInCurrentMonth > $goal) {
+            currentGoalNum = 0;
+        } else {
+            currentGoalNum = $goal - daysInCurrentMonth;
+        }
+
     }
 
 
@@ -80,8 +89,8 @@
             "description": "A pie chart showing percentage of days completed versus goal.",
             "data": {
                 "values": [
+                    {"category": 'Days Remaining', "value": currentGoalNum},
                     {"category": 'Days Completed', "value": daysInCurrentMonth},
-                    {"category": 'Days Remaining', "value": $goal - daysInCurrentMonth},
                 ]
             },
             "mark": "arc",
