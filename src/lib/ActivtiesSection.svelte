@@ -19,12 +19,9 @@
   // When loading the page, the current date will be the date that the user is editing
   // The current View will also be the editing view
   let validDate = true;
-  let DisableInputs = true;
+  let DisableInputs = false;
   $EditingDate = date;
   $currentView = "Edit Entry";
-  if ($currentView === "Edit Entry") {
-    DisableInputs = false;
-  }
 
   function saveEntry() {
 
@@ -107,6 +104,8 @@
     } else if ($currentView === "Home") {
       let SearchedDate = date;
       loadPreviousEntry(SearchedDate);
+    } else if ($currentView === "Edit Entry") {
+      DisableInputs = false;
     }
 
   }
@@ -255,10 +254,10 @@
       <label style="color: {$primaryColor};">
         <strong>Add Activity:</strong>
         <select bind:value={selectAddActivity} on:change={AddActivity} style="background-color:{$secondaryColor}">
-          <option value="" disabled selected>Select an activity</option>
-          {#each $invisibleActivities as activity}
-            <option value={activity} style="background-color:{$secondaryColor}">{activity}</option>
-          {/each}
+            <option value="" disabled selected hidden>Select an activity</option>
+            {#each $invisibleActivities as activity}
+              <option value={activity} style="background-color:{$secondaryColor}">{activity}</option>
+            {/each}
       </label>
 
       {#if $visableActivities.includes("Feeling")}
@@ -266,9 +265,10 @@
         <div>
           <h2 style="color: {$primaryColor};">{tempFeelingActivity.type}</h2>
           <h3 style="color: {$primaryColor};">{tempFeelingActivity.description}</h3>
-          <select bind:value={tempFeelingActivity.selected}>
+          <select bind:value={tempFeelingActivity.selected} style="background-color:{$secondaryColor}">
+            <option value="" disabled selected hidden>Select a feeling</option>
           {#each tempFeelingActivity.options as option}
-          <option value={option} style="background-color:{$secondaryColor}" disabled={DisableInputs}>{option}</option>
+            <option value={option} style="background-color:{$secondaryColor}" disabled={DisableInputs}>{option}</option>
           {/each}
           </select>
         </div>
