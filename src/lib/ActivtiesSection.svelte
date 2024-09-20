@@ -101,6 +101,7 @@
     if ($currentView === "Previous Entry") {
       let SearchedDate = $EditingDate;
       loadPreviousEntry(SearchedDate);
+      DisableInputs = true;
     } else if ($currentView === "Home") {
       let SearchedDate = date;
       loadPreviousEntry(SearchedDate);
@@ -116,7 +117,6 @@
     console.log(date);
     console.log(SearchedDate);
     successMessage = "";
-    DisableInputs = true;
     let entry = $dailyEntries.filter(entry => entry.date === SearchedDate)[0];
 
     if (entry) {
