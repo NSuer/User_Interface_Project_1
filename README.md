@@ -110,11 +110,13 @@ Jane Doe (she/her) is a 20 year old that wants to be more consistent with her da
   - Their name
   - The current date/time
   - When viewing already saved entries, a "Currently Viewing" label will appear letting them know they are at that date
+  
   ![](Sketches/Activities1.png)
   - Making an entry
     - Users can follow the diections of each activity and input their inf
   - Saving entries
     - Visual feedback will occur upon sucessfully saving
+  
   ![](Sketches/Activities2.png)
   - Editing entries 
     - Visual feedback will occur upon entering edit mode
@@ -123,9 +125,11 @@ Jane Doe (she/her) is a 20 year old that wants to be more consistent with her da
     - When switching between dates, inputs will be disabled to stop accidental editing
   - Adding activities 
     - Users can select which activities to add, from a list of activites currently removed. This will be mirrored across other dates.
-  ![](Sketches/Activities4.png)
+    
+    ![](Sketches/Activities4.png)
   - Removing activities
     - Users can remove activities. This selection is mirrored across other dates. Data is not deleted in previous entries though. When the activity is added back, the data will still be there.
+  
   ![](Sketches/Activities5.png)
 - Click Calendar
   - Viewing previous entries
@@ -133,18 +137,22 @@ Jane Doe (she/her) is a 20 year old that wants to be more consistent with her da
   - Returning to home (Current day)
     - There is a button that returns the user to the current day.
     - The current day is also colored blue in the calnedar
+  
   ![](Sketches/Calendar1.png)
   - Searching for entries (level 4 implementation goal)
     - Users can search for journal entries from a search bar. User can then click the "Go to entry" button to view that entry.
+  
   ![](Sketches/Calendar2.png)
 - Goal Area
   - How long they have used the interface and how much they have used the interface (X days since beginning, Y days active)
   - Setting goal
   - Pie graph: visual overview of performance
     - Upon changing the goal, this graph will reactively change to the new goal
+  
   ![](Sketches/Goal1.png)
 - Theme Picker
   - Allows user to change the colors/theme of the UI by clicking circles (Reverse by clicking through)
+
 ![](Sketches/Theme1.png)
 
 ## Implementation of this application
